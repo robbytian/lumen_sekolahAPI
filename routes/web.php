@@ -24,3 +24,5 @@ $router->post('/kelas','KelasController@create');
 $router->get('/kelas','KelasController@read');
 $router->post('/kelas/{id}','KelasController@update');
 $router->delete('/kelas/{id}','KelasController@delete');
+
+$router->get('siswa/{id}','SiswaController@detail');

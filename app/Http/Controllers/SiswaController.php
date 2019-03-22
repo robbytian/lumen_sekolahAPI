@@ -10,7 +10,7 @@ class SiswaController extends Controller
      * Create a new controller instance.
      *
      * @return void
-     */
+     */ 
     public function create(Request $request){
         $validation = Validator::make($request->all(), [
             'nis' => 'required|max:10',
@@ -120,6 +120,21 @@ class SiswaController extends Controller
                 'result'=>null
             ];
         }
+    }
+
+    public function detail($id){
+        $siswa = Siswa::find($id);
+        if(empty($siswa)){
+            return[
+                'status'=>'error',
+                'message'=>'Data Tidak Ditemukan',
+                'result'=>null
+            ];
+        }
+        return[
+                'status'=>'success',
+                'result'=>$siswa
+        ];
     }
 
 }
